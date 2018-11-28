@@ -32,7 +32,18 @@ client.on("ready", () => {
             url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         }
     })
+		
+  //logs that the status was set successfully
   console.log("set status successfully")
+
+	try{
+		//gets any channels named #general and assigns a variable to it.
+		let general_channel=client.channels.find("name","general")
+		
+		//will send a welcome message to it
+		general_channel.send(`\`\`\`css
+		Pi.exe is back online
+		\`\`\``)
 });
 
 //%% functions %%
@@ -103,8 +114,10 @@ client.on('guildMemberAdd', (guildMember) => {
 //these are the commands for the bot. I will try to alphabetize them, but no promises.
 client.on("message", (message) => {
   //unverified role is a role i made for the verification proccess
-  if (message.content==("yes") || message.content==("Yes")){
-    message.reply("no")
+  if (message.content.contains("what are the odds"){
+    message.reply(`\`\`\`css
+	approximately 650 billion to one!
+	\`\`\``)
   }
   else if (message.content.startsWith("somebody once told me")|| message.content.startsWith("Somebody once told me")){
     message.reply(("the world was gonna roll me"))
@@ -162,6 +175,7 @@ client.on("message", (message) => {
         }
       }
       //set up roles for bot use. Pi role is for my bugfixing. i'd prefer it if random people didn't mess with it
+	  //still in developement
       else if (command=="setup"){
         let command_args = args.slice(3).join(" ")
         message.guild.createRole({
