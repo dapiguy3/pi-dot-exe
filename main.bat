@@ -1,2 +1,3 @@
+color 0a
 node pi-dot-exe.js
-pause 
+pause 3

@@ -12,7 +12,7 @@ const prefix='>'
 //and replace the numbers on line 17 with them.
 
 //the auth token of the bot is in this file. make sure to add to .gitignore  
-var auth = require("./pi-auth.json")
+var auth = require("./auth.json")
 var token = auth.token
 
 //this is a template for a discord embed I made. feel free to add whatever you want to it.
@@ -49,7 +49,7 @@ client.on("ready", () => {
 	catch(error){
     console.error(error)
 		console.log('uh oh sending online message failed')
-		
+	}
 });
 
 //%% functions %%
@@ -120,7 +120,7 @@ client.on('guildMemberAdd', (guildMember) => {
 //these are the commands for the bot. I will try to alphabetize them, but no promises.
 client.on("message", (message) => {
   //unverified role is a role i made for the verification proccess
-  if (message.content.contains("what are the odds"){
+  if (message.content.startsWith("what are the odds")){
     message.reply(`\`\`\`css
 	approximately 650 billion to one!
 	\`\`\``)
