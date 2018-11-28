@@ -44,6 +44,12 @@ client.on("ready", () => {
 		general_channel.send(`\`\`\`css
 		Pi.exe is back online
 		\`\`\``)
+	}
+	//error handlling
+	catch(error){
+    console.error(error)
+		console.log('uh oh sending online message failed')
+		
 });
 
 //%% functions %%
